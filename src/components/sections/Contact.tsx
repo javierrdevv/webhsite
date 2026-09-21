@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
-import { PaperPlane, GithubLogo, TwitterLogo, LinkedinLogo } from "@phosphor-icons/react";
+import { PaperPlane } from "@phosphor-icons/react";
 
 export default function Contact() {
   return (
-    <section className="relative py-32 px-6 md:px-10 max-w-7xl mx-auto text-center">
+    <section id="contact" className="relative py-32 px-6 md:px-10 max-w-7xl mx-auto text-center scroll-mt-24">
       <div className="relative z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -31,34 +31,6 @@ export default function Contact() {
           </a>
         </motion.div>
       </div>
-
-      <footer className="mt-40 pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8 text-muted text-sm">
-        <div className="flex items-center gap-6">
-          <span>© 2026 nda.dev</span>
-          <span className="hidden md:block opacity-30">/</span>
-          <div className="flex items-center gap-4">
-            <SocialLink href="https://github.com" icon={<GithubLogo size={18} />} />
-            <SocialLink href="https://x.com" icon={<TwitterLogo size={18} />} />
-            <SocialLink href="https://linkedin.com" icon={<LinkedinLogo size={18} />} />
-          </div>
-        </div>
-        <div className="font-mono text-[11px] uppercase tracking-widest">
-          Based in Jakarta / Working Globally
-        </div>
-      </footer>
     </section>
-  );
-}
-
-function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-foreground transition-colors"
-    >
-      {icon}
-    </a>
   );
 }

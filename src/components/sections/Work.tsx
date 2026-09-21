@@ -82,7 +82,7 @@ export default function Work() {
   }, [reduce]);
 
   return (
-    <section className="relative py-32">
+    <section id="work" className="relative py-32 scroll-mt-24">
       <div className="px-6 md:px-10 max-w-7xl mx-auto mb-40">
         <h2 className="text-4xl md:text-7xl font-bold tracking-tighter mb-6">Selected Works</h2>
         <p className="text-muted max-w-lg text-xl leading-relaxed">
