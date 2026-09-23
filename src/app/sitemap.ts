@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://nda.dev";
+const BASE_URL = "https://landingpage2.ndadev.my.id";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

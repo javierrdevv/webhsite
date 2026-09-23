@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nda.dev"),
+  metadataBase: new URL("https://landingpage2.ndadev.my.id"),
   title: "nda.dev | Digital Artifacts",
   description:
     "Multidisciplinary developer focused on high-fidelity interfaces and cinematic web experiences.",
