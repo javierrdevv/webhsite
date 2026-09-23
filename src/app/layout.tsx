@@ -16,8 +16,42 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nda.dev"),
   title: "nda.dev | Digital Artifacts",
-  description: "Multidisciplinary developer focused on high-fidelity interfaces and cinematic web experiences.",
+  description:
+    "Multidisciplinary developer focused on high-fidelity interfaces and cinematic web experiences.",
+  keywords: [
+    "creative developer",
+    "frontend developer",
+    "interface designer",
+    "web animation",
+    "motion design",
+    "nda.dev",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName: "nda.dev",
+    title: "nda.dev | Digital Artifacts",
+    description:
+      "Multidisciplinary developer focused on high-fidelity interfaces and cinematic web experiences.",
+    images: [
+      {
+        url: "/hero.jpg",
+        width: 2560,
+        height: 1440,
+        alt: "nda.dev — digital artifacts",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "nda.dev | Digital Artifacts",
+    description:
+      "Multidisciplinary developer focused on high-fidelity interfaces and cinematic web experiences.",
+    images: ["/hero.jpg"],
+  },
 };
 
 export default function RootLayout({

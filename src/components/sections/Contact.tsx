@@ -14,7 +14,7 @@ export default function Contact() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-5xl md:text-8xl font-bold tracking-tighter mb-8 leading-[1.1]">
+          <h2 className="text-4xl sm:text-5xl md:text-8xl font-bold tracking-tighter mb-8 leading-[1.1] text-balance">
             Let&apos;s build something <br />
             <span className="text-accent italic">that matters.</span>
           </h2>
@@ -24,11 +24,20 @@ export default function Contact() {
 
           <a
             href="mailto:hello@nda.dev"
-            className="inline-flex items-center gap-3 bg-foreground text-background px-10 py-5 rounded-full font-bold text-lg transition-transform active:scale-95 hover:opacity-90"
+            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-foreground px-10 py-5 text-lg font-bold text-background transition-transform active:scale-95"
           >
-            <PaperPlane size={24} />
-            Start a conversation
+            <span className="relative z-10 flex items-center gap-3">
+              <PaperPlane
+                size={24}
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+              Start a conversation
+            </span>
+            <span className="absolute inset-0 translate-y-full bg-accent transition-transform duration-300 ease-out group-hover:translate-y-0" />
           </a>
+          <p className="mt-8 font-mono text-xs uppercase tracking-[0.25em] text-muted">
+            Currently booking [bulan/tahun] — [X] slot open
+          </p>
         </motion.div>
       </div>
     </section>

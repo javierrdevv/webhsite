@@ -20,11 +20,12 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Design tokens are duplicated as `:root` CSS vars in the same file — keep the two lists in sync.
 - Fonts: Geist/Geist Mono loaded via `next/font` in `src/app/layout.tsx`, wired into `@theme` as `--font-sans` / `--font-mono`.
 - **Motion = the `motion` package** (`import { motion } from "motion/react"`), NOT `framer-motion`.
+- **Icons = `@phosphor-icons/react`** (e.g. `ArrowUpRight`, `PaperPlane`) — do not add lucide or other icon libs.
 - **Smooth scroll = `lenis`**: `SmoothScroll` (`src/components/ui/SmoothScroll.tsx`, mounted in `layout.tsx`) wraps the app in `ReactLenis root` and keeps ScrollTrigger in sync via `useLenis(() => ScrollTrigger.update())`. Lenis CSS is hand-inlined in `globals.css` (not imported from the package).
 - Path alias `@/*` → `src/*`.
 
 ## Structure & conventions
-- `src/app/page.tsx` is a thin server component that stacks five `"use client"` sections in order: Hero, Work, About, Contact, Footer.
+- `src/app/page.tsx` is a thin server component that stacks five `"use client"` sections (Hero, Work, About, Contact, Footer) plus two full-bleed parallax `CinematicBand` image segments interpolated between Work→About and About→Contact, a `SocialProof` (stats + testimonials) block before Contact, and a decorative `Marquee` under the Hero.
 - Components live under `src/components/`: `sections/` for page sections, `ui/` for shared chrome (Navigation, SmoothScroll, ScrollToTop). Mark new components `"use client"` if they use gsap/motion/lenis — in practice everything interactive is client-side.
 - **GSAP pattern** (see `About.tsx`, `Work.tsx`): `gsap.registerPlugin(ScrollTrigger)` at module top; animations created inside `gsap.context(() => {...}, ref)`; cleanup via `ctx.revert()` in the `useEffect` return. Guard ScrollTrigger `pin` and setups with `useReducedMotion()` (as in `Work.tsx`).
 - **Hero is a motion-powered smooth-scroll parallax hero** (like hover.dev's "SmoothScroll Hero", adapted to the 5-section page): a sticky full-screen image that shrinks via scroll-linked `clipPath` + `backgroundSize` (`useScroll`/`useTransform`/`useMotionTemplate` from `motion/react`, see `Hero.tsx`), with floating parallax `ParallaxImg` divs that drift/fade on scroll. No video/WebGL. Images are plain CSS `background-image` URLs (NOT `next/image`, so no `remotePatterns` needed).

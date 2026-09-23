@@ -59,7 +59,7 @@ export default function Footer() {
             </a>
           ))}
         </div>
-        <a href="#" className="hover:text-accent transition-colors">
+        <a href="#top" className="hover:text-accent transition-colors">
           Back to top ↑
         </a>
       </div>

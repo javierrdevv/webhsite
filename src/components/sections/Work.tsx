@@ -83,7 +83,7 @@ export default function Work() {
 
   return (
     <section id="work" className="relative py-32 scroll-mt-24">
-      <div className="px-6 md:px-10 max-w-7xl mx-auto mb-40">
+      <div className="px-6 md:px-10 max-w-7xl mx-auto mb-20 md:mb-40">
         <h2 className="text-4xl md:text-7xl font-bold tracking-tighter mb-6">Selected Works</h2>
         <p className="text-muted max-w-lg text-xl leading-relaxed">
           A collection of digital artifacts where precision engineering meets cinematic motion.
@@ -102,7 +102,7 @@ export default function Work() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-6xl items-center bg-background p-8 md:p-20 rounded-[64px] border border-white/10 shadow-[0_60px_120px_-30px_rgba(0,0,0,0.8)]"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 w-full max-w-6xl items-center bg-background p-8 md:p-20 rounded-[64px] border border-white/10 shadow-[0_60px_120px_-30px_rgba(0,0,0,0.8)]"
             >
               <div className="order-2 lg:order-1">
                 <div className="relative group overflow-hidden rounded-3xl aspect-video bg-zinc-900 border border-white/10">
@@ -110,7 +110,7 @@ export default function Work() {
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
@@ -119,7 +119,7 @@ export default function Work() {
 
               <div className="order-1 lg:order-2 space-y-8">
                 <span className="text-xs uppercase tracking-[0.3em] text-accent font-mono block">{project.category}</span>
-                <h3 className="text-6xl md:text-8xl font-bold tracking-tighter leading-[1.05]">{project.title}</h3>
+                <h3 className="text-5xl md:text-8xl font-bold tracking-tighter leading-[1.05]">{project.title}</h3>
                 <p className="text-xl text-muted max-w-md leading-relaxed">
                   {project.description}
                 </p>
@@ -135,13 +135,12 @@ export default function Work() {
 
 function LinkButton() {
   return (
-    <button className="group flex items-center gap-2 text-foreground font-bold text-lg hover:text-accent transition-colors">
+    <a
+      href="#contact"
+      className="group inline-flex items-center gap-2 text-foreground font-bold text-lg hover:text-accent transition-colors"
+    >
       Explore Case Study
       <ArrowUpRight size={28} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-    </button>
+    </a>
   );
-}
-
-function Link({ children, href }: { children: React.ReactNode; href: string }) {
-  return <a href={href}>{children}</a>;
 }

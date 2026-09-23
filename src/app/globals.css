@@ -11,6 +11,7 @@
 }
 
 :root {
+  color-scheme: dark;
   --background: #09090b;
   --foreground: #fafafa;
   --accent: #2e5bff;
@@ -33,6 +34,8 @@ html, body {
 html {
   scrollbar-width: none;
   -ms-overflow-style: none;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 html::-webkit-scrollbar {
   display: none;
@@ -74,4 +77,41 @@ html.lenis {
 }
 .lenis.lenis-smooth iframe {
   pointer-events: none;
+}
+
+/* Marquee */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  will-change: transform;
+  animation: marquee 80s linear infinite;
+}
+.marquee-track-reverse {
+  will-change: transform;
+  animation: marquee 100s linear infinite reverse;
+}
+.marquee-track:hover,
+.marquee-track-reverse:hover,
+.marquee-pause:hover .marquee-track,
+.marquee-pause:hover .marquee-track-reverse {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .marquee-track-reverse {
+    animation: none;
+  }
+}
+
+/* Polish: text selection & keyboard focus */
+::selection {
+  background-color: var(--accent);
+  color: #fff;
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
